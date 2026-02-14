@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Download Noon Islamic - The most beautiful Islamic app for Quran, Prayer times, Qibla, Azkar and more. Available on iOS and Android.">
+    <title>Noon Islamic - Your Ultimate Islamic Companion App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #2d7a5e;
+            --dark-green: #1a4d3a;
+            --light-green: #e8f5f1;
+            --accent-gold: #c9a961;
+            --beige: #f5f1e8;
+            --white: #ffffff;
+            --text-dark: #1a2332;
+            --text-light: #5a6c7d;
+            --shadow-sm: rgba(45, 122, 94, 0.08);
+            --shadow-md: rgba(45, 122, 94, 0.15);
+            --shadow-lg: rgba(45, 122, 94, 0.25);
+            --gradient-primary: linear-gradient(135deg, #2d7a5e 0%, #1a4d3a 100%);
+            --gradient-gold: linear-gradient(135deg, #d4af6a 0%, #c9a961 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px var(--shadow-sm);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 4px 30px var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+
+        .download-btn {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow-md);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px var(--shadow-lg);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5f1 100%);
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 25l25 25-25 25-25-25z' fill='%232d7a5e' fill-opacity='0.03'/%3E%3C/svg%3E");
+            opacity: 0.4;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient-gold);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 35px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            color: var(--primary-green);
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid var(--primary-green);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-green);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .phone-mockup {
+            max-width: 450px;
+            margin: 0 auto;
+            position: relative;
+            animation: floatPhone 6s ease-in-out infinite;
+        }
+
+        @keyframes floatPhone {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .phone-frame {
+            width: 100%;
+            height: auto;
+            background: var(--gradient-primary);
+            border-radius: 40px;
+            padding: 15px;
+            box-shadow: 0 20px 60px var(--shadow-lg);
+        }
+
+        .phone-screen {
+            width: 100%;
+            aspect-ratio: 9/19.5;
+            background: #000;
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screenshot-slider {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .screenshot {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .screenshot.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--accent-gold);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, white 0%, var(--beige) 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--light-green);
+            color: var(--primary-green);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(45, 122, 94, 0.08);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px var(--shadow-md);
+            border-color: var(--primary-green);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px var(--shadow-md);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 20px;
+            background: white;
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--beige);
+            padding: 35px;
+            border-radius: 20px;
+            border-left: 4px solid var(--accent-gold);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px var(--shadow-md);
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 20px;
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 20l20 20-20 20-20-20z' fill='%23ffffff' fill-opacity='0.05'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .store-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            color: var(--text-dark);
+            padding: 15px 30px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .store-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .store-icon {
+            font-size: 2rem;
+        }
+
+        .store-text {
+            text-align: left;
+        }
+
+        .store-text small {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        .store-text span {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            line-height: 2;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .phone-mockup {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                padding: 14px 24px;
+                font-size: 1rem;
+            }
+
+            .feature-card {
+                padding: 30px;
+            }
+
+            .store-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .store-btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">☪</div>
+                <span>Noon Islamic</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="index.html">Support</a></li>
+            </ul>
+            <a href="#download" class="download-btn">Download Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">✨ Most Downloaded Islamic App 2026</span>
+                <h1>
+                    Your Ultimate <br>
+                    <span class="hero-gradient-text">Islamic Companion</span>
+                </h1>
+                <p>
+                    Experience a beautiful, modern Islamic app that brings you closer to your faith.
+                    Access Quran, Prayer times, Qibla, Azkar, and more - all in one place.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#download" class="btn-primary">
+                        <span>📱</span>
+                        Download Free
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        <span>✨</span>
+                        Explore Features
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="phone-mockup">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="screenshot-slider">
+                                <img src="assets/Simulator Screenshot - iPhone 17 Pro Max - 2026-02-14 at 22.56.11.png"
+                                    alt="Noon Islamic App - Home Screen" class="screenshot active">
+                                <img src="assets/Simulator Screenshot - iPhone 17 Pro Max - 2026-02-14 at 22.56.17.png"
+                                    alt="Noon Islamic App - Quran Reader" class="screenshot">
+                                <img src="assets/Simulator Screenshot - iPhone 17 Pro Max - 2026-02-14 at 22.56.21.png"
+                                    alt="Noon Islamic App - App Icon" class="screenshot">
+                                <img src="assets/Simulator Screenshot - iPhone 17 Pro Max - 2026-02-14 at 22.56.29.png"
+                                    alt="Noon Islamic App - Prayer Times" class="screenshot">
+                                <img src="assets/Simulator Screenshot - iPhone 17 Pro Max - 2026-02-14 at 22.56.50.png"
+                                    alt="Noon Islamic App - Features" class="screenshot">
+                                <img src="assets/Simulator Screenshot - iPhone 17 Pro Max - 2026-02-14 at 22.56.56.png"
+                                    alt="Noon Islamic App - Additional Feature" class="screenshot">
+                            </div>
+                            <div class="slider-dots">
+                                <span class="dot active" data-index="0"></span>
+                                <span class="dot" data-index="1"></span>
+                                <span class="dot" data-index="2"></span>
+                                <span class="dot" data-index="3"></span>
+                                <span class="dot" data-index="4"></span>
+                                <span class="dot" data-index="5"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">500K+</div>
+                <div class="stat-label">Active Users</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4.8★</div>
+                <div class="stat-label">App Store Rating</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Countries</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Free Forever</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <span class="section-badge">🌟 Features</span>
+            <h2 class="section-title">Everything You Need for Your Faith</h2>
+            <p class="section-description">
+                Comprehensive Islamic tools designed with care and attention to detail
+            </p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📖</div>
+                <h3>Complete Quran</h3>
+                <p>Read the Holy Quran with multiple translations, tafsir, and beautiful Arabic text. Listen to
+                    recitations from renowned Qaris.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🕌</div>
+                <h3>Accurate Prayer Times</h3>
+                <p>Never miss a prayer with precise, location-based prayer times and customizable notifications for all
+                    five daily prayers.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧭</div>
+                <h3>Qibla Compass</h3>
+                <p>Find the exact Qibla direction anywhere in the world using your device's built-in compass technology.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📿</div>
+                <h3>Daily Azkar</h3>
+                <p>Access authentic morning and evening azkar with helpful reminders to keep you connected throughout
+                    the day.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>Hadith Collection</h3>
+                <p>Explore authentic hadith collections from Sahih Bukhari, Muslim, and other trusted sources with
+                    search functionality.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌙</div>
+                <h3>Islamic Calendar</h3>
+                <p>Stay updated with Islamic dates, important events, and Ramadan tracking all in one beautiful calendar
+                    view.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📻</div>
+                <h3>Quran Radio</h3>
+                <p>Listen to live Quran recitation streams from around the world, including Makkah and Madinah live
+                    broadcasts.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>Offline Access</h3>
+                <p>Access all core features without internet connection. Perfect for travel and areas with limited
+                    connectivity.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3>Beautiful Design</h3>
+                <p>Enjoy a modern, intuitive interface with smooth animations and Islamic-inspired themes that make
+                    worship delightful.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <span class="section-badge">💬 Testimonials</span>
+            <h2 class="section-title">Loved by Muslims Worldwide</h2>
+            <p class="section-description">
+                Join thousands of satisfied users who've made Noon Islamic their daily companion
+            </p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="rating">★★★★★</div>
+                <p class="testimonial-text">
+                    "The best Islamic app I've ever used! The interface is beautiful and it has everything I need for my
+                    daily worship. Highly recommended!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">A</div>
+                    <div class="author-info">
+                        <h4>Ahmed Hassan</h4>
+                        <p>United States</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="rating">★★★★★</div>
+                <p class="testimonial-text">
+                    "MashaAllah! The prayer times are always accurate and the Quran recitation quality is amazing. This
+                    app has truly changed my daily routine."
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">F</div>
+                    <div class="author-info">
+                        <h4>Fatima Abdullah</h4>
+                        <p>United Kingdom</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="rating">★★★★★</div>
+                <p class="testimonial-text">
+                    "Simple, elegant, and comprehensive. The offline feature is perfect for my travels. May Allah reward
+                    the developers!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">M</div>
+                    <div class="author-info">
+                        <h4>Mohammed Ali</h4>
+                        <p>Saudi Arabia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="download">
+        <div class="cta-content">
+            <h2>Start Your Spiritual Journey Today</h2>
+            <p>Download Noon Islamic now and experience the most beautiful Islamic app - completely free!</p>
+            <div class="store-buttons">
+                <a href="#" class="store-btn">
+                    <div class="store-icon">🍎</div>
+                    <div class="store-text">
+                        <small>Download on the</small>
+                        <span>App Store</span>
+                    </div>
+                </a>
+                <a href="#" class="store-btn">
+                    <div class="store-icon">📱</div>
+                    <div class="store-text">
+                        <small>GET IT ON</small>
+                        <span>Google Play</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Noon Islamic</h3>
+                <p>Your ultimate Islamic companion for daily worship, Quran reading, prayer times, and spiritual growth.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="index.html">Support</a></li>
+                    <li><a href="#download">Download</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:mohammedragehzxz@gmail.com">mohammedragehzxz@gmail.com</a></p>
+                <p>We typically respond within 24 hours</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Noon Islamic. All rights reserved. Made with ❤️ for the Muslim Ummah</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll behavior for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards and testimonial cards
+        document.querySelectorAll('.feature-card, .testimonial-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+
+</html>
